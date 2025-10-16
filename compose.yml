@@ -1,0 +1,17 @@
+
+services:
+  postgres:
+    image: postgres:12.19
+    container_name: my_postgres_12
+    environment:
+      POSTGRES_DB: your_db
+      POSTGRES_USER: your_user
+      POSTGRES_PASSWORD: your_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d  # <-- Mount SQL scripts here
+
+volumes:
+  postgres_data:
