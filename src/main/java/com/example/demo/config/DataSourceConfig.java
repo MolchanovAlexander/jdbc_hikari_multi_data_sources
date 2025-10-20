@@ -30,20 +30,20 @@ public class DataSourceConfig {
     }
 
     @Bean(name = "mysql_ds_20102025")
-   // @Lazy
+    @Lazy
     public DataSource mysqlDataSource() {
         HikariConfig config = new HikariConfig();
         config.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        config.setJdbcUrl("jdbc:mysql://localhost:3306/testdb?enabledTLSProtocols=TLSv1.2");//
+        config.setJdbcUrl("jdbc:mysql://localhost:3306/testdb");//?enabledTLSProtocols=TLSv1.2
         config.setUsername("testuser");
         config.setPassword("your_password");
 
         config.setMinimumIdle(1);
         config.setMaximumPoolSize(3);
         config.setIdleTimeout(3000);
-        //config.setConnectionInitSql("SET statement_timeout = '20000'");
         config.setPoolName("mysql_POOL");
         config.setConnectionTestQuery("SELECT 1");
+        config.setConnectionTimeout(5000);
 
         return new HikariDataSource(config);
     }
