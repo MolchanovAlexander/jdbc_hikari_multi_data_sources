@@ -32,7 +32,7 @@ public class RESTTemplateMoksReal {
                 return bytes;
             }
         } catch (Exception e) {
-            System.out.println("----------------DNNNOOOO___________________________");
+            System.out.println("----------------DNNNOOOO___________________________" + e.getMessage());
         }
         return new byte[1];
     }

@@ -28,7 +28,14 @@ public class UNBController {
     }
 
     @GetMapping("/rates2")
-    public String getConversions2(
+    public String getConversions2( // EUR USD - postgres
+            @RequestParam(defaultValue = "USD") String code
+    ) {
+        return processor.getCurInfoFromUNB(code, MOCK_URL_CURR).toString();
+    }
+
+    @GetMapping("/rates3") // MDL AZN - Moldova Azerbaijan mysql
+    public String getConversions3(
             @RequestParam(defaultValue = "USD") String code
     ) {
         return processor.getCurInfoFromUNB(code, MOCK_URL_CURR).toString();

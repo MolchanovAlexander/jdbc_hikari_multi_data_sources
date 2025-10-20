@@ -6,19 +6,19 @@ CREATE TABLE IF NOT EXISTS financedata (
 );
 
 INSERT INTO financedata (param, body) VALUES
-('USD', JSON_OBJECT(
+('MDL', JSON_OBJECT(
     'StartDate', '20.10.2025',
-    'CurrencyCode', '840',
-    'CurrencyCodeL', 'USD',
-    'Amount', 41.7308,
-    'TimeSign', 'mock_resp',
+    'CurrencyCode', '498',
+    'CurrencyCodeL', 'MDL',
+    'Amount', 2.4748,
+    'TimeSign', 'mock_resp_msql',
     'Units', 1
 )),
-('EUR', JSON_OBJECT(
+('AZN', JSON_OBJECT(
     'StartDate', '20.10.2025',
     'CurrencyCode', '944',
     'CurrencyCodeL', 'AZN',
     'Amount', 24.5519,
-    'TimeSign', 'mock_resp',
+    'TimeSign', 'mock_resp_msql',
     'Units', 1
 ));
