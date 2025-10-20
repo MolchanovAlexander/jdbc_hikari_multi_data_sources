@@ -11,7 +11,24 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./init:/docker-entrypoint-initdb.d  # <-- Mount SQL scripts here
+      - ./init:/docker-entrypoint-initdb.d  # <-- Mount SQL scripts here /// docker compose down -v will help
+
+  mysql56:
+    image: mysql:8.0.37
+    container_name: mysql8037
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: "your_password"
+      MYSQL_DATABASE: testdb
+      MYSQL_USER: testuser
+      MYSQL_PASSWORD: "your_password"
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql56-data:/var/lib/mysql
+      - ./mysql-init:/docker-entrypoint-initdb.d  # Mount init scripts
+    command: --default-authentication-plugin=mysql_native_password  # Optional but helps with older clients
 
 volumes:
   postgres_data:
+  mysql56-data:

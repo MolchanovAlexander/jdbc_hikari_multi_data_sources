@@ -40,7 +40,7 @@ public class MockCurrencyDataProcessing implements MockServlet{
 
             String someParam = map.get("CODE");
 
-            String q = "SELECT curr_data FROM finance.financedata where param = ?";
+            String q = "SELECT body FROM finance.financedata where param = ?";
             try {
                 JdbcTemplate jt = new JdbcTemplate(ds);
                 data = jt.queryForObject(q, byte[].class, someParam);
